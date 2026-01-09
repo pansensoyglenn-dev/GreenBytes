@@ -8,1562 +8,468 @@
     <meta name="keywords" content="Python, OOP, Object Oriented Programming, Python Examples, Encapsulation, Abstraction, Inheritance, Polymorphism, Coding Tutorials">
     <meta name="author" content="Glenn Pansensoy">
     
-    <meta property="og:title" content="Python OOP Examples - Master Object Oriented Programming">
-    <meta property="og:description" content="A comprehensive guide to Python OOP with step-by-step code samples.">
-    <meta property="og:type" content="website">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4575646748966866" crossorigin="anonymous"></script>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; }
-        .accordion-body { white-space: pre-wrap; }
-        .copy-btn { float: right; margin-top: 10px; }
-        .ad-container { text-align: center; margin: 20px 0; padding: 10px; background: #f9f9f9; border: 1px dashed #ccc; }
-        .course-card { border: 1px solid #dee2e6; transition: transform 0.3s; }
-        .course-card:hover { transform: translateY(-5px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        header { background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); }
+        :root {
+            --obsidian: #0b0d0f; /* Pure Obsidian */
+            --midnight-blue: #152238; /* Rich Midnight Blue */
+            --electric-blue: #00aaff;
+            --accent-blue: #1e3a8a;
+            --text-silver: #e2e8f0;
+        }
+        body { 
+            background-color: var(--obsidian); 
+            color: var(--text-silver); 
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+        .concept-header {
+            border-left: 5px solid var(--electric-blue);
+            padding: 25px;
+            background: linear-gradient(90deg, var(--midnight-blue), var(--obsidian));
+            margin-bottom: 30px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .accordion-item {
+            background-color: var(--midnight-blue);
+            border: 1px solid #1e293b;
+            margin-bottom: 12px;
+            border-radius: 8px !important;
+            overflow: hidden;
+        }
+        .accordion-button {
+            background-color: #0f172a;
+            color: var(--electric-blue);
+            font-weight: 600;
+            border: none;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--electric-blue);
+            color: #ffffff;
+        }
+        .accordion-body { 
+            background-color: var(--obsidian); 
+            color: #d1d5db;
+            border-top: 1px solid var(--accent-blue);
+        }
+        .copy-btn { 
+            background-color: var(--accent-blue); 
+            border: 1px solid var(--electric-blue); 
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .copy-btn:hover { background-color: var(--electric-blue); }
+        .nav-tabs { border-bottom: 2px solid var(--midnight-blue); }
+        .nav-tabs .nav-link { color: #94a3b8; border: none; font-weight: 600; padding: 12px 25px; }
+        .nav-tabs .nav-link.active { background: none; color: var(--electric-blue); border-bottom: 4px solid var(--electric-blue); }
+        pre { border-radius: 8px; border: 1px solid #334155; }
+        .logic-step { color: var(--electric-blue); font-weight: bold; margin-right: 5px; }
+        footer { border-top: 1px solid var(--midnight-blue); margin-top: 50px; }
+        
+        .intro-narrative {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-style: italic;
+            color: #94a3b8;
+            text-align: center;
+            border-bottom: 1px solid var(--accent-blue);
+            padding-bottom: 20px;
+        }
+        .outro-narrative {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(30, 58, 138, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 15px;
+        }
+        .diagram-container {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
     </style>
     <script>
         function copyCode(id) {
             const code = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied to clipboard!');
-            });
+            navigator.clipboard.writeText(code).then(() => { alert('Code copied to clipboard!'); });
         }
     </script>
 </head>
 <body>
-    <header class="text-white text-center py-5">
-        <h1>Python OOP Examples</h1>
-        <p class="lead">A Comprehensive Guide to Object-Oriented Programming in Python</p>
-    </header>
 
-    <div class="container my-5">
-        
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="alert alert-info d-flex align-items-center" role="alert">
-                    <div>
-                        <strong>Ready to go Pro?</strong> Take your skills beyond these examples with the <a href="#" class="alert-link">Complete Python Developer Bootcamp</a>. 
-                    </div>
-                </div>
-            </div>
-        </div>
+<header class="text-center py-5" style="background: linear-gradient(to bottom, #000, var(--obsidian));">
+    <h1 style="color: var(--electric-blue); letter-spacing: 2px;">PYTHON OOP EXAMPLES</h1>
+    <p class="lead" style="color: #94a3b8;">A Comprehensive Guide to Object-Oriented Programming Logic</p>
+</header>
 
-        <ul class="nav nav-tabs" id="oopTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="encap-tab" data-bs-toggle="tab" data-bs-target="#encap" type="button" role="tab" aria-controls="encap" aria-selected="true">Encapsulation</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="abs-tab" data-bs-toggle="tab" data-bs-target="#abs" type="button" role="tab" aria-controls="abs" aria-selected="false">Abstraction</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="inherit-tab" data-bs-toggle="tab" data-bs-target="#inherit" type="button" role="tab" aria-controls="inherit" aria-selected="false">Inheritance</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="poly-tab" data-bs-toggle="tab" data-bs-target="#poly" type="button" role="tab" aria-controls="poly" aria-selected="false">Polymorphism</button>
-            </li>
-        </ul>
+<div class="container my-5">
+    
+    <div class="intro-narrative">
+        <p>"In the vast digital expanse, code is often viewed as a mere set of instructions. But to the true architect, programming is the art of modeling reality itself. Object-Oriented Programming (OOP) is not just a syntax; it is a philosophy—a way of compartmentalizing chaos into order, creating digital entities that possess their own attributes, behaviors, and secrets. As you step into this guide, think of classes not as files, but as blueprints for existence. Welcome to the profound world where logic meets structure."</p>
+    </div>
+
+    <div class="diagram-container">
         
-        <div class="tab-content" id="oopTabContent">
-            <div class="tab-pane fade show active" id="encap" role="tabpanel" aria-labelledby="encap-tab">
-                <h2 class="mt-4">Python Encapsulation Examples</h2>
+    </div>
+
+    <ul class="nav nav-tabs justify-content-center mb-4" id="oopTab">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#encap">Encapsulation</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#abs">Abstraction</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#inherit">Inheritance</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#poly">Polymorphism</button></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="encap">
+            <div class="concept-header">
+                <h2>The Logic of Encapsulation</h2>
                 <p>Encapsulation in Python involves bundling data (attributes) and methods that operate on the data within a class, while restricting direct access to some components (e.g., using private variables with underscores). This promotes data hiding and controlled access via getter and setter methods. Below are 10 sample programs, each with an algorithmic narrative and step-by-step explanation.</p>
-                
-                <div class="accordion" id="encapAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse1" aria-expanded="false" aria-controls="encapCollapse1">
-                                Sample 1: Bank Account Balance
-                            </button>
-                        </h2>
-                        <div id="encapCollapse1" class="accordion-collapse collapse" aria-labelledby="encapHeading1">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Create a class to manage a bank account where the balance is private. Initialize with a balance, provide methods to deposit (add amount if positive), withdraw (subtract if sufficient funds), and get balance. Ensure direct access to balance is restricted.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode1">class BankAccount:
+            </div>
+
+            <div class="accordion" id="encapAcc">
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e1">Sample 1: Bank Account Balance</button></h2>
+                    <div id="e1" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <strong>Algorithmic Narrative:</strong> Create a class to manage a bank account where the balance is private. Initialize with a balance, provide methods to deposit (add amount if positive), withdraw (subtract if sufficient funds), and get balance. Ensure direct access to balance is restricted.<br><br>
+                            <pre><code class="language-python" id="ec1">class BankAccount:
     def __init__(self, initial_balance=0):
         self.__balance = initial_balance  # Private attribute
-
     def deposit(self, amount):
-        if amount > 0:
-            self.__balance += amount
-
+        if amount > 0: self.__balance += amount
     def withdraw(self, amount):
-        if 0 < amount <= self.__balance:
-            self.__balance -= amount
+        if 0 < amount <= self.__balance: self.__balance -= amount
+    def get_balance(self): return self.__balance
 
-    def get_balance(self):
-        return self.__balance
-
-# Usage
 account = BankAccount(100)
 account.deposit(50)
 account.withdraw(30)
-print(account.get_balance())  # Output: 120
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode1')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Define the `BankAccount` class.<br>
-                                2. In `__init__`, set `__balance` as private (double underscore convention).<br>
-                                3. `deposit` checks if amount > 0, then adds to `__balance`.<br>
-                                4. `withdraw` checks if amount is positive and <= `__balance`, then subtracts.<br>
-                                5. `get_balance` returns `__balance` without allowing direct modification.<br>
-                                6. Create instance, perform operations, and access via getter.
-                            </div>
+print(account.get_balance()) # Output: 120</code></pre>
+                            <button class="btn btn-primary btn-sm copy-btn" onclick="copyCode('ec1')">Copy Code</button><br><br>
+                            <strong>Step-by-Step:</strong> <span class="logic-step">1.</span> Define class. <span class="logic-step">2.</span> Use <code>__</code> for private balance. <span class="logic-step">3.</span> Validate amounts in methods. <span class="logic-step">4.</span> Use getter for access.
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading2">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse2" aria-expanded="false" aria-controls="encapCollapse2">
-                                Sample 2: Employee Salary
-                            </button>
-                        </h2>
-                        <div id="encapCollapse2" class="accordion-collapse collapse" aria-labelledby="encapHeading2">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Design a class for employee details with private salary. Initialize with name and salary, provide a method to give raise (increase by percentage), and a getter for salary. Prevent negative raises.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode2">class Employee:
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e2">Sample 2: Employee Salary</button></h2>
+                    <div id="e2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <strong>Algorithmic Narrative:</strong> Design a class for employee details with private salary. Initialize with name and salary, provide a method to give raise (increase by percentage), and a getter for salary. Prevent negative raises.<br><br>
+                            <pre><code class="language-python" id="ec2">class Employee:
     def __init__(self, name, salary):
         self.name = name
-        self.__salary = salary  # Private
-
+        self.__salary = salary
     def give_raise(self, percentage):
-        if percentage > 0:
-            self.__salary += self.__salary * (percentage / 100)
+        if percentage > 0: self.__salary += self.__salary * (percentage / 100)
+    def get_salary(self): return self.__salary
 
-    def get_salary(self):
-        return self.__salary
-
-# Usage
 emp = Employee("Alice", 50000)
 emp.give_raise(10)
-print(emp.get_salary())  # Output: 55000.0
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode2')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Define `Employee` class.<br>
-                                2. Set `name` public, `__salary` private in `__init__`.<br>
-                                3. `give_raise` validates percentage > 0, calculates increase.<br>
-                                4. `get_salary` returns `__salary`.<br>
-                                5. Instantiate, apply raise, retrieve via getter.
-                            </div>
+print(emp.get_salary()) # Output: 55000.0</code></pre>
+                            <button class="btn btn-primary btn-sm copy-btn" onclick="copyCode('ec2')">Copy Code</button>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse3" aria-expanded="false" aria-controls="encapCollapse3">
-                                Sample 3: Car Fuel Level
-                            </button>
-                        </h2>
-                        <div id="encapCollapse3" class="accordion-collapse collapse" aria-labelledby="encapHeading3">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Model a car with private fuel level. Initialize with fuel, methods to drive (reduce fuel based on distance), refuel (add fuel), and get fuel level. Ensure fuel doesn't go negative.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode3">class Car:
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e3">Sample 3: Car Fuel Level</button></h2>
+                    <div id="e3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <strong>Algorithmic Narrative:</strong> Model a car with private fuel level. Initialize with fuel, methods to drive (reduce fuel based on distance), refuel (add fuel), and get fuel level. Ensure fuel doesn't go negative.<br><br>
+                            <pre><code class="language-python" id="ec3">class Car:
     def __init__(self, fuel=50):
-        self.__fuel = fuel  # Private
-
+        self.__fuel = fuel
     def drive(self, distance):
-        fuel_needed = distance / 10  # Assume 10 km per unit fuel
-        if fuel_needed <= self.__fuel:
-            self.__fuel -= fuel_needed
-
+        fuel_needed = distance / 10
+        if fuel_needed <= self.__fuel: self.__fuel -= fuel_needed
     def refuel(self, amount):
-        if amount > 0:
-            self.__fuel += amount
+        if amount > 0: self.__fuel += amount
+    def get_fuel(self): return self.__fuel
 
-    def get_fuel(self):
-        return self.__fuel
-
-# Usage
-my_car = Car()
-my_car.drive(200)
-my_car.refuel(30)
-print(my_car.get_fuel())  # Output: 60.0
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode3')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Define `Car` class.<br>
-                                2. `__init__` sets private `__fuel`.<br>
-                                3. `drive` calculates fuel needed, subtracts if sufficient.<br>
-                                4. `refuel` adds positive amount.<br>
-                                5. `get_fuel` returns value.<br>
-                                6. Use: Drive reduces, refuel adds, get checks.
-                            </div>
+my_car = Car(); my_car.drive(200); my_car.refuel(30)
+print(my_car.get_fuel()) # Output: 60.0</code></pre>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading4">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse4" aria-expanded="false" aria-controls="encapCollapse4">
-                                Sample 4: Student Grade
-                            </button>
-                        </h2>
-                        <div id="encapCollapse4" class="accordion-collapse collapse" aria-labelledby="encapHeading4">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Create a student class with private grade. Initialize with name and grade, method to update grade (only if between 0-100), and getter.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode4">class Student:
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e4">Sample 4: Student Grade</button></h2>
+                    <div id="e4" class="accordion-collapse collapse"><div class="accordion-body"><strong>Code:</strong><br><pre><code class="language-python">class Student:
     def __init__(self, name, grade=0):
         self.name = name
-        self.__grade = grade  # Private
-
+        self.__grade = grade
     def update_grade(self, new_grade):
-        if 0 <= new_grade <= 100:
-            self.__grade = new_grade
-
-    def get_grade(self):
-        return self.__grade
-
-# Usage
-stu = Student("Bob")
-stu.update_grade(85)
-print(stu.get_grade())  # Output: 85
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode4')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Class `Student` defined.<br>
-                                2. Private `__grade` in init.<br>
-                                3. `update_grade` validates range, sets if valid.<br>
-                                4. Getter returns `__grade`.<br>
-                                5. Instantiate, update, retrieve.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading5">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse5" aria-expanded="false" aria-controls="encapCollapse5">
-                                Sample 5: Book Inventory
-                            </button>
-                        </h2>
-                        <div id="encapCollapse5" class="accordion-collapse collapse" aria-labelledby="encapHeading5">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Manage book stock with private quantity. Init with title and qty, borrow (decrease if available), return (increase), get qty.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode5">class Book:
+        if 0 <= new_grade <= 100: self.__grade = new_grade
+    def get_grade(self): return self.__grade</code></pre></div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e5">Sample 5: Book Inventory</button></h2>
+                    <div id="e5" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Book:
     def __init__(self, title, quantity=1):
         self.title = title
-        self.__quantity = quantity  # Private
-
+        self.__quantity = quantity
     def borrow(self):
-        if self.__quantity > 0:
-            self.__quantity -= 1
-
-    def return_book(self):
-        self.__quantity += 1
-
-    def get_quantity(self):
-        return self.__quantity
-
-# Usage
-book = Book("Python Basics", 5)
-book.borrow()
-print(book.get_quantity())  # Output: 4
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode5')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Define `Book`.<br>
-                                2. Private `__quantity`.<br>
-                                3. `borrow` decrements if >0.<br>
-                                4. `return_book` increments.<br>
-                                5. Getter accesses.<br>
-                                6. Use: Borrow reduces stock.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading6">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse6" aria-expanded="false" aria-controls="encapCollapse6">
-                                Sample 6: Temperature Sensor
-                            </button>
-                        </h2>
-                        <div id="encapCollapse6" class="accordion-collapse collapse" aria-labelledby="encapHeading6">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Sensor with private temp. Init with temp, calibrate (adjust by delta), get temp. Limit adjustments.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode6">class TempSensor:
-    def __init__(self, temp=25):
-        self.__temp = temp  # Private
-
+        if self.__quantity > 0: self.__quantity -= 1
+    def return_book(self): self.__quantity += 1
+    def get_quantity(self): return self.__quantity</code></pre></div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e6">Sample 6: Temperature Sensor</button></h2>
+                    <div id="e6" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class TempSensor:
+    def __init__(self, temp=25): self.__temp = temp
     def calibrate(self, delta):
-        if -10 <= delta <= 10:
-            self.__temp += delta
-
-    def get_temp(self):
-        return self.__temp
-
-# Usage
-sensor = TempSensor()
-sensor.calibrate(5)
-print(sensor.get_temp())  # Output: 30
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode6')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Class `TempSensor`.<br>
-                                2. Private `__temp`.<br>
-                                3. `calibrate` adds delta if in range.<br>
-                                4. Getter.<br>
-                                5. Calibrate adjusts.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading7">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse7" aria-expanded="false" aria-controls="encapCollapse7">
-                                Sample 7: User Password
-                            </button>
-                        </h2>
-                        <div id="encapCollapse7" class="accordion-collapse collapse" aria-labelledby="encapHeading7">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> User with private password. Init with username and pw, change pw (if new != old), verify pw.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode7">class User:
+        if -10 <= delta <= 10: self.__temp += delta
+    def get_temp(self): return self.__temp</code></pre></div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e7">Sample 7: User Password</button></h2>
+                    <div id="e7" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class User:
     def __init__(self, username, password):
         self.username = username
-        self.__password = password  # Private
-
+        self.__password = password
     def change_password(self, new_pw):
-        if new_pw != self.__password:
-            self.__password = new_pw
-
-    def verify_password(self, pw):
-        return pw == self.__password
-
-# Usage
-user = User("admin", "pass123")
-user.change_password("newpass")
-print(user.verify_password("newpass"))  # Output: True
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode7')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Define `User`.<br>
-                                2. Private `__password`.<br>
-                                3. `change_password` sets if different.<br>
-                                4. `verify_password` checks equality.<br>
-                                5. Change and verify.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading8">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse8" aria-expanded="false" aria-controls="encapCollapse8">
-                                Sample 8: Inventory Item Price
-                            </button>
-                        </h2>
-                        <div id="encapCollapse8" class="accordion-collapse collapse" aria-labelledby="encapHeading8">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Item with private price. Init with name and price, discount (reduce by %), get price.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode8">class Item:
+        if new_pw != self.__password: self.__password = new_pw
+    def verify_password(self, pw): return pw == self.__password</code></pre></div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e8">Sample 8: Inventory Item Price</button></h2>
+                    <div id="e8" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Item:
     def __init__(self, name, price):
         self.name = name
-        self.__price = price  # Private
-
+        self.__price = price
     def apply_discount(self, percent):
-        if 0 < percent <= 50:
-            self.__price -= self.__price * (percent / 100)
-
-    def get_price(self):
-        return self.__price
-
-# Usage
-item = Item("Laptop", 1000)
-item.apply_discount(20)
-print(item.get_price())  # Output: 800.0
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode8')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Class `Item`.<br>
-                                2. Private `__price`.<br>
-                                3. `apply_discount` reduces if valid %.<br>
-                                4. Getter.<br>
-                                5. Apply and get.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading9">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse9" aria-expanded="false" aria-controls="encapCollapse9">
-                                Sample 9: Health Points in Game
-                            </button>
-                        </h2>
-                        <div id="polyCollapse9" class="accordion-collapse collapse" aria-labelledby="encapHeading9">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Character with private HP. Init with HP, heal (add), damage (subtract if >0), get HP.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode9">class Character:
-    def __init__(self, hp=100):
-        self.__hp = hp  # Private
-
+        if 0 < percent <= 50: self.__price -= self.__price * (percent / 100)
+    def get_price(self): return self.__price</code></pre></div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e9">Sample 9: Health Points in Game</button></h2>
+                    <div id="e9" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Character:
+    def __init__(self, hp=100): self.__hp = hp
     def heal(self, amount):
-        if amount > 0:
-            self.__hp += amount
-
+        if amount > 0: self.__hp += amount
     def damage(self, amount):
-        if amount > 0 and amount <= self.__hp:
-            self.__hp -= amount
-
-    def get_hp(self):
-        return self.__hp
-
-# Usage
-char = Character()
-char.damage(20)
-char.heal(10)
-print(char.get_hp())  # Output: 90
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode9')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Define `Character`.<br>
-                                2. Private `__hp`.<br>
-                                3. `heal` adds positive.<br>
-                                4. `damage` subtracts if valid.<br>
-                                5. Getter.<br>
-                                6. Damage and heal.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="encapHeading10">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encapCollapse10" aria-expanded="false" aria-controls="encapCollapse10">
-                                Sample 10: Battery Level
-                            </button>
-                        </h2>
-                        <div id="encapCollapse10" class="accordion-collapse collapse" aria-labelledby="encapHeading10">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Device with private battery. Init with level, charge (add up to 100), use (subtract), get level.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="encapCode10">class Device:
-    def __init__(self, battery=100):
-        self.__battery = battery  # Private
-
+        if amount > 0 and amount <= self.__hp: self.__hp -= amount
+    def get_hp(self): return self.__hp</code></pre></div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e10">Sample 10: Battery Level</button></h2>
+                    <div id="e10" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Device:
+    def __init__(self, battery=100): self.__battery = battery
     def charge(self, amount):
-        if amount > 0:
-            self.__battery = min(100, self.__battery + amount)
-
+        if amount > 0: self.__battery = min(100, self.__battery + amount)
     def use(self, amount):
-        if amount > 0:
-            self.__battery = max(0, self.__battery - amount)
-
-    def get_battery(self):
-        return self.__battery
-
-# Usage
-dev = Device(50)
-dev.use(20)
-dev.charge(40)
-print(dev.get_battery())  # Output: 70
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('encapCode10')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Class `Device`.<br>
-                                2. Private `__battery`.<br>
-                                3. `charge` adds, caps at 100.<br>
-                                4. `use` subtracts, floors at 0.<br>
-                                5. Getter.<br>
-                                6. Use and charge.
-                            </div>
-                        </div>
-                    </div>
+        if amount > 0: self.__battery = max(0, self.__battery - amount)
+    def get_battery(self): return self.__battery</code></pre></div></div>
                 </div>
             </div>
-            
-            <div class="tab-pane fade" id="abs" role="tabpanel" aria-labelledby="abs-tab">
-                <h2 class="mt-4">Python Abstraction Examples</h2>
-                <p>Abstraction in Python hides complex implementation details and exposes only essential features, often using abstract base classes (ABCs) from the `abc` module. Users interact with high-level methods without knowing internals. Below are 10 samples with step-by-step explanations.</p>
-                
-                <div class="accordion" id="absAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse1" aria-expanded="false" aria-controls="absCollapse1">
-                                Sample 1: Shape Area Calculation
-                            </button>
-                        </h2>
-                        <div id="absCollapse1" class="accordion-collapse collapse" aria-labelledby="absHeading1">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode1">from abc import ABC, abstractmethod
+        </div>
 
+        <div class="tab-pane fade" id="abs">
+            <div class="concept-header">
+                <h2>The Logic of Abstraction</h2>
+                <p>Abstraction in Python hides complex implementation details and exposes only essential features, often using abstract base classes (ABCs). Below are 10 samples with step-by-step explanations.</p>
+            </div>
+
+            <div class="accordion" id="absAcc">
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a1">Sample 1: Shape Area</button></h2>
+                    <div id="a1" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">from abc import ABC, abstractmethod
 class Shape(ABC):
     @abstractmethod
-    def area(self):
-        pass
-
+    def area(self): pass
 class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-
-    def area(self):
-        return 3.14 * self.radius ** 2
-
-# Usage
-circle = Circle(5)
-print(circle.area())  # Output: 78.5
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode1')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Import `ABC` and `abstractmethod`.<br>
-                                2. Define abstract `Shape` with abstract `area`.<br>
-                                3. `Circle` inherits, implements `area` with formula.<br>
-                                4. Instantiate `Circle`, call `area`.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading2">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse2" aria-expanded="false" aria-controls="absCollapse2">
-                                Sample 2: Payment Processor
-                            </button>
-                        </h2>
-                        <div id="absCollapse2" class="accordion-collapse collapse" aria-labelledby="absHeading2">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode2">from abc import ABC, abstractmethod
-
-class Payment(ABC):
-    @abstractmethod
-    def process(self, amount):
-        pass
-
-class CreditCard(Payment):
-    def process(self, amount):
-        return f"Processed {amount} via credit card"
-
-# Usage
-cc = CreditCard()
-print(cc.process(100))  # Output: Processed 100 via credit card
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode2')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Payment` with `process`.<br>
-                                2. `CreditCard` implements specific processing.<br>
-                                3. Create instance, call method.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse3" aria-expanded="false" aria-controls="absCollapse3">
-                                Sample 3: Animal Sound
-                            </button>
-                        </h2>
-                        <div id="absCollapse3" class="accordion-collapse collapse" aria-labelledby="absHeading3">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode3">from abc import ABC, abstractmethod
-
-class Animal(ABC):
-    @abstractmethod
-    def make_sound(self):
-        pass
-
-class Dog(Animal):
-    def make_sound(self):
-        return "Woof"
-
-# Usage
-dog = Dog()
-print(dog.make_sound())  # Output: Woof
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode3')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Animal` with `make_sound`.<br>
-                                2. `Dog` provides implementation.<br>
-                                3. Instantiate, call.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading4">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse4" aria-expanded="false" aria-controls="absCollapse4">
-                                Sample 4: Vehicle Start
-                            </button>
-                        </h2>
-                        <div id="absCollapse4" class="accordion-collapse collapse" aria-labelledby="absHeading4">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode4">from abc import ABC, abstractmethod
-
-class Vehicle(ABC):
-    @abstractmethod
-    def start(self):
-        pass
-
-class Bike(Vehicle):
-    def start(self):
-        return "Bike started with kick"
-
-# Usage
-bike = Bike()
-print(bike.start())  # Output: Bike started with kick
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode4')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Vehicle` with `start`.<br>
-                                2. `Bike` implements.<br>
-                                3. Use.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading5">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse5" aria-expanded="false" aria-controls="absCollapse5">
-                                Sample 5: Database Connection
-                            </button>
-                        </h2>
-                        <div id="absCollapse5" class="accordion-collapse collapse" aria-labelledby="absHeading5">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode5">from abc import ABC, abstractmethod
-
-class Database(ABC):
-    @abstractmethod
-    def connect(self):
-        pass
-
-class MySQL(Database):
-    def connect(self):
-        return "Connected to MySQL"
-
-# Usage
-db = MySQL()
-print(db.connect())  # Output: Connected to MySQL
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode5')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Database` with `connect`.<br>
-                                2. `MySQL` implements.<br>
-                                3. Connect.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading6">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse6" aria-expanded="false" aria-controls="absCollapse6">
-                                Sample 6: File Reader
-                            </button>
-                        </h2>
-                        <div id="absCollapse6" class="accordion-collapse collapse" aria-labelledby="absHeading6">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode6">from abc import ABC, abstractmethod
-
-class FileHandler(ABC):
-    @abstractmethod
-    def read(self):
-        pass
-
-class TextFile(FileHandler):
-    def read(self):
-        return "Read text file content"
-
-# Usage
-txt = TextFile()
-print(txt.read())  # Output: Read text file content
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode6')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `FileHandler` with `read`.<br>
-                                2. `TextFile` implements.<br>
-                                3. Read.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading7">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse7" aria-expanded="false" aria-controls="absCollapse7">
-                                Sample 7: Notification Sender
-                            </button>
-                        </h2>
-                        <div id="absCollapse7" class="accordion-collapse collapse" aria-labelledby="absHeading7">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode7">from abc import ABC, abstractmethod
-
-class Notification(ABC):
-    @abstractmethod
-    def send(self, message):
-        pass
-
-class Email(Notification):
-    def send(self, message):
-        return f"Email sent: {message}"
-
-# Usage
-email = Email()
-print(email.send("Hello"))  # Output: Email sent: Hello
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode7')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Notification` with `send`.<br>
-                                2. `Email` implements.<br>
-                                3. Send.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading8">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse8" aria-expanded="false" aria-controls="absCollapse8">
-                                Sample 8: Logger
-                            </button>
-                        </h2>
-                        <div id="absCollapse8" class="accordion-collapse collapse" aria-labelledby="absHeading8">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode8">from abc import ABC, abstractmethod
-
-class Logger(ABC):
-    @abstractmethod
-    def log(self, msg):
-        pass
-
-class ConsoleLogger(Logger):
-    def log(self, msg):
-        print(f"Logged: {msg}")
-
-# Usage
-logger = ConsoleLogger()
-logger.log("Error")  # Output: Logged: Error
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode8')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Logger` with `log`.<br>
-                                2. `ConsoleLogger` prints.<br>
-                                3. Log.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading9">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse9" aria-expanded="false" aria-controls="absCollapse9">
-                                Sample 9: Encryption
-                            </button>
-                        </h2>
-                        <div id="absCollapse9" class="accordion-collapse collapse" aria-labelledby="absHeading9">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode9">from abc import ABC, abstractmethod
-
-class Encryptor(ABC):
-    @abstractmethod
-    def encrypt(self, data):
-        pass
-
-class AES(Encryptor):
-    def encrypt(self, data):
-        return f"Encrypted {data} with AES"
-
-# Usage
-aes = AES()
-print(aes.encrypt("secret"))  # Output: Encrypted secret with AES
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode9')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Encryptor` with `encrypt`.<br>
-                                2. `AES` implements.<br>
-                                3. Encrypt.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="absHeading10">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#absCollapse10" aria-expanded="false" aria-controls="absCollapse10">
-                                Sample 10: Media Player
-                            </button>
-                        </h2>
-                        <div id="absCollapse10" class="accordion-collapse collapse" aria-labelledby="absHeading10">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="absCode10">from abc import ABC, abstractmethod
-
-class Media(ABC):
-    @abstractmethod
-    def play(self):
-        pass
-
-class Video(Media):
-    def play(self):
-        return "Playing video"
-
-# Usage
-vid = Video()
-print(vid.play())  # Output: Playing video
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('absCode10')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Abstract `Media` with `play`.<br>
-                                2. `Video` implements.<br>
-                                3. Play.
-                            </div>
-                        </div>
-                    </div>
+    def __init__(self, r): self.r = r
+    def area(self): return 3.14 * self.r ** 2</code></pre></div></div>
                 </div>
-            </div>
-            
-            <div class="tab-pane fade" id="inherit" role="tabpanel" aria-labelledby="inherit-tab">
-                <h2 class="mt-4">Python Inheritance Examples</h2>
-                <p>Inheritance allows a subclass to inherit attributes and methods from a base class, promoting code reuse. Subclasses can override or extend base behavior. Below are 10 samples with step-by-step narratives.</p>
-                
-                <div class="accordion" id="inheritAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse1" aria-expanded="false" aria-controls="inheritCollapse1">
-                                Sample 1: Animal and Dog
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse1" class="accordion-collapse collapse" aria-labelledby="inheritHeading1">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Base Animal with eat method. Dog inherits, adds bark. Create Dog, call both methods.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode1">class Animal:
-    def eat(self):
-        return "Eating"
-
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a2">Sample 2: Payment Processor</button></h2><div id="a2" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Payment(ABC):
+    @abstractmethod
+    def process(self, amount): pass
+class CreditCard(Payment):
+    def process(self, amount): return f"CC Processed {amount}"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a3">Sample 3: Animal Sound</button></h2><div id="a3" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Animal(ABC):
+    @abstractmethod
+    def make_sound(self): pass
 class Dog(Animal):
-    def bark(self):
-        return "Woof"
+    def make_sound(self): return "Woof"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a4">Sample 4: Vehicle Start</button></h2><div id="a4" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Vehicle(ABC):
+    @abstractmethod
+    def start(self): pass
+class Bike(Vehicle):
+    def start(self): return "Bike kickstart"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a5">Sample 5: Database Connection</button></h2><div id="a5" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Database(ABC):
+    @abstractmethod
+    def connect(self): pass
+class MySQL(Database):
+    def connect(self): return "MySQL Connected"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a6">Sample 6: File Reader</button></h2><div id="a6" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class FileHandler(ABC):
+    @abstractmethod
+    def read(self): pass
+class TextFile(FileHandler):
+    def read(self): return "Reading Text..."</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a7">Sample 7: Notification Sender</button></h2><div id="a7" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Notification(ABC):
+    @abstractmethod
+    def send(self, msg): pass
+class Email(Notification):
+    def send(self, msg): return f"Email: {msg}"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a8">Sample 8: Logger</button></h2><div id="a8" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Logger(ABC):
+    @abstractmethod
+    def log(self, msg): pass
+class ConsoleLogger(Logger):
+    def log(self, msg): print(f"Log: {msg}")</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a9">Sample 9: Encryption</button></h2><div id="a9" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Encryptor(ABC):
+    @abstractmethod
+    def encrypt(self, data): pass
+class AES(Encryptor):
+    def encrypt(self, data): return f"AES Encrypted {data}"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a10">Sample 10: Media Player</button></h2><div id="a10" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Media(ABC):
+    @abstractmethod
+    def play(self): pass
+class Video(Media):
+    def play(self): return "Video Playing"</code></pre></div></div></div>
+            </div>
+        </div>
 
-# Usage
-dog = Dog()
-print(dog.eat())  # Output: Eating
-print(dog.bark())  # Output: Woof
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode1')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Define base `Animal` with `eat`.<br>
-                                2. `Dog` inherits from `Animal`, adds `bark`.<br>
-                                3. Instantiate `Dog`.<br>
-                                4. Call inherited `eat` and new `bark`.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading2">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse2" aria-expanded="false" aria-controls="inheritCollapse2">
-                                Sample 2: Shape and Rectangle
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse2" class="accordion-collapse collapse" aria-labelledby="inheritHeading2">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Base Shape with color. Rectangle inherits, adds area calculation.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode2">class Shape:
-    def __init__(self, color):
-        self.color = color
+        <div class="tab-pane fade" id="inherit">
+            <div class="concept-header">
+                <h2>The Logic of Inheritance</h2>
+                <p>Inheritance allows a subclass to inherit attributes and methods from a base class, promoting code reuse. Below are 10 samples with step-by-step narratives.</p>
+            </div>
 
+            <div class="accordion" id="inheritAcc">
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i1">Sample 1: Animal and Dog</button></h2><div id="i1" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Animal:
+    def eat(self): return "Eating"
+class Dog(Animal):
+    def bark(self): return "Woof"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i2">Sample 2: Shape and Rectangle</button></h2><div id="i2" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Shape:
+    def __init__(self, color): self.color = color
 class Rectangle(Shape):
-    def __init__(self, color, length, width):
+    def __init__(self, color, l, w):
         super().__init__(color)
-        self.length = length
-        self.width = width
-
-    def area(self):
-        return self.length * self.width
-
-# Usage
-rect = Rectangle("red", 4, 5)
-print(rect.color)  # Output: red
-print(rect.area())  # Output: 20
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode2')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Shape` init with color.<br>
-                                2. `Rectangle` inherits, calls super init, adds dimensions.<br>
-                                3. Adds `area` method.<br>
-                                4. Access inherited color, compute area.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse3" aria-expanded="false" aria-controls="inheritCollapse3">
-                                Sample 3: Person and Student
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse3" class="accordion-collapse collapse" aria-labelledby="inheritHeading3">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Person with name. Student inherits, adds grade and study method.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode3">class Person:
-    def __init__(self, name):
-        self.name = name
-
+        self.l, self.w = l, w
+    def area(self): return self.l * self.w</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i3">Sample 3: Person and Student</button></h2><div id="i3" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Person:
+    def __init__(self, name): self.name = name
 class Student(Person):
     def __init__(self, name, grade):
-        super().__init__(name)
-        self.grade = grade
-
-    def study(self):
-        return f"{self.name} is studying"
-
-# Usage
-stu = Student("Alice", 90)
-print(stu.study())  # Output: Alice is studying
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode3')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Person` with name.<br>
-                                2. `Student` inherits, adds grade, `study`.<br>
-                                3. Use super for init.<br>
-                                4. Call `study`.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading4">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse4" aria-expanded="false" aria-controls="inheritCollapse4">
-                                Sample 4: Vehicle and Car
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse4" class="accordion-collapse collapse" aria-labelledby="inheritHeading4">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Vehicle with speed. Car inherits, overrides accelerate.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode4">class Vehicle:
-    def __init__(self, speed):
-        self.speed = speed
-
-    def accelerate(self):
-        self.speed += 10
-
+        super().__init__(name); self.grade = grade
+    def study(self): return f"{self.name} is studying"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i4">Sample 4: Vehicle and Car</button></h2><div id="i4" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Vehicle:
+    def __init__(self, speed): self.speed = speed
+    def accelerate(self): self.speed += 10
 class Car(Vehicle):
-    def accelerate(self):
-        self.speed += 20  # Override
-
-# Usage
-car = Car(50)
-car.accelerate()
-print(car.speed)  # Output: 70
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode4')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Vehicle` with speed, accelerate +10.<br>
-                                2. `Car` inherits, overrides to +20.<br>
-                                3. Instantiate, accelerate, check speed.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading5">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse5" aria-expanded="false" aria-controls="inheritCollapse5">
-                                Sample 5: Employee and Manager
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse5" class="accordion-collapse collapse" aria-labelledby="inheritHeading5">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Employee with salary. Manager inherits, adds bonus calculation.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode5">class Employee:
-    def __init__(self, salary):
-        self.salary = salary
-
+    def accelerate(self): self.speed += 20</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i5">Sample 5: Employee and Manager</button></h2><div id="i5" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Employee:
+    def __init__(self, salary): self.salary = salary
 class Manager(Employee):
-    def __init__(self, salary, team_size):
-        super().__init__(salary)
-        self.team_size = team_size
-
-    def bonus(self):
-        return self.salary * 0.1 * self.team_size
-
-# Usage
-mgr = Manager(100000, 5)
-print(mgr.bonus())  # Output: 50000.0
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode5')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Employee` with salary.<br>
-                                2. `Manager` adds team_size, `bonus`.<br>
-                                3. Compute bonus.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading6">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse6" aria-expanded="false" aria-controls="inheritCollapse6">
-                                Sample 6: Bird and Eagle
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse6" class="accordion-collapse collapse" aria-labelledby="inheritHeading6">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Bird with fly. Eagle inherits, adds hunt.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode6">class Bird:
-    def fly(self):
-        return "Flying"
-
+    def __init__(self, salary, team):
+        super().__init__(salary); self.team = team
+    def bonus(self): return self.salary * 0.1 * self.team</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i6">Sample 6: Bird and Eagle</button></h2><div id="i6" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Bird:
+    def fly(self): return "Flying"
 class Eagle(Bird):
-    def hunt(self):
-        return "Hunting"
-
-# Usage
-eagle = Eagle()
-print(eagle.fly())  # Output: Flying
-print(eagle.hunt())  # Output: Hunting
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode6')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Bird` with fly.<br>
-                                2. `Eagle` inherits, adds hunt.<br>
-                                3. Call both.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading7">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse7" aria-expanded="false" aria-controls="inheritCollapse7">
-                                Sample 7: Account and SavingsAccount
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse7" class="accordion-collapse collapse" aria-labelledby="inheritHeading7">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Account with balance. Savings inherits, adds interest.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode7">class Account:
-    def __init__(self, balance):
-        self.balance = balance
-
+    def hunt(self): return "Hunting"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i7">Sample 7: Account and SavingsAccount</button></h2><div id="i7" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Account:
+    def __init__(self, balance): self.balance = balance
 class SavingsAccount(Account):
-    def add_interest(self, rate):
-        self.balance += self.balance * (rate / 100)
-
-# Usage
-sav = SavingsAccount(1000)
-sav.add_interest(5)
-print(sav.balance)  # Output: 1050.0
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode7')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Account` with balance.<br>
-                                2. `SavingsAccount` adds interest method.<br>
-                                3. Apply interest.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading8">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse8" aria-expanded="false" aria-controls="inheritCollapse8">
-                                Sample 8: Device and Smartphone
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse8" class="accordion-collapse collapse" aria-labelledby="inheritHeading8">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Device with power_on. Smartphone inherits, adds call.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode8">class Device:
-    def power_on(self):
-        return "Powered on"
-
+    def add_interest(self, rate): self.balance += self.balance * (rate / 100)</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i8">Sample 8: Device and Smartphone</button></h2><div id="i8" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Device:
+    def power_on(self): return "Power On"
 class Smartphone(Device):
-    def call(self):
-        return "Making call"
-
-# Usage
-phone = Smartphone()
-print(phone.power_on())  # Output: Powered on
-print(phone.call())  # Output: Making call
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode8')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Device` with power_on.<br>
-                                2. `Smartphone` adds call.<br>
-                                3. Call both.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading9">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse9" aria-expanded="false" aria-controls="inheritCollapse9">
-                                Sample 9: Fruit and Apple
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse9" class="accordion-collapse collapse" aria-labelledby="inheritHeading9">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Fruit with color. Apple inherits, adds variety.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode9">class Fruit:
-    def __init__(self, color):
-        self.color = color
-
+    def call(self): return "Calling..."</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i9">Sample 9: Fruit and Apple</button></h2><div id="i9" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Fruit:
+    def __init__(self, color): self.color = color
 class Apple(Fruit):
     def __init__(self, color, variety):
-        super().__init__(color)
-        self.variety = variety
-
-# Usage
-apple = Apple("red", "Fuji")
-print(apple.color)  # Output: red
-print(apple.variety)  # Output: Fuji
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode9')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Fruit` with color.<br>
-                                2. `Apple` adds variety.<br>
-                                3. Access both.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="inheritHeading10">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inheritCollapse10" aria-expanded="false" aria-controls="inheritCollapse10">
-                                Sample 10: Tool and Hammer
-                            </button>
-                        </h2>
-                        <div id="inheritCollapse10" class="accordion-collapse collapse" aria-labelledby="inheritHeading10">
-                            <div class="accordion-body">
-                                <strong>Algorithmic Narrative:</strong> Tool with use. Hammer inherits, overrides use.<br><br>
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="inheritCode10">class Tool:
-    def use(self):
-        return "Using tool"
-
+        super().__init__(color); self.variety = variety</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i10">Sample 10: Tool and Hammer</button></h2><div id="i10" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Tool:
+    def use(self): return "Using tool"
 class Hammer(Tool):
-    def use(self):
-        return "Hammering"
-
-# Usage
-hammer = Hammer()
-print(hammer.use())  # Output: Hammering
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('inheritCode10')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Narrative:</strong><br>
-                                1. Base `Tool` with use.<br>
-                                2. `Hammer` overrides.<br>
-                                3. Call overridden method.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    def use(self): return "Hammering"</code></pre></div></div></div>
             </div>
-            
-            <div class="tab-pane fade" id="poly" role="tabpanel" aria-labelledby="poly-tab">
-                <h2 class="mt-4">Python Polymorphism Examples</h2>
-                <p>Polymorphism allows objects of different classes to be treated as objects of a common superclass, with methods behaving differently based on the object. Often seen with method overriding or duck typing. Below are 10 samples with step-by-step explanations.</p>
-                
-                <div class="accordion" id="polyAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse1" aria-expanded="false" aria-controls="polyCollapse1">
-                                Sample 1: Shapes Drawing
-                            </button>
-                        </h2>
-                        <div id="polyCollapse1" class="accordion-collapse collapse" aria-labelledby="polyHeading1">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode1">class Shape:
-    def draw(self):
-        return "Drawing shape"
+        </div>
 
+        <div class="tab-pane fade" id="poly">
+            <div class="concept-header">
+                <h2>The Logic of Polymorphism</h2>
+                <p>Polymorphism allows objects of different classes to be treated as objects of a common superclass, with methods behaving differently. Below are 10 samples with step-by-step explanations.</p>
+            </div>
+
+            <div class="accordion" id="polyAcc">
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p1">Sample 1: Shapes Drawing</button></h2><div id="p1" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python" id="pc1">class Shape:
+    def draw(self): return "Shape"
 class Circle(Shape):
-    def draw(self):
-        return "Drawing circle"
-
+    def draw(self): return "Circle"
 class Square(Shape):
-    def draw(self):
-        return "Drawing square"
-
-def render(shape):
-    print(shape.draw())
-
-# Usage
-render(Circle())  # Output: Drawing circle
-render(Square())  # Output: Drawing square
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode1')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `Shape` with `draw`.<br>
-                                2. `Circle` and `Square` override `draw`.<br>
-                                3. `render` function takes any Shape, calls `draw`.<br>
-                                4. Pass different objects, get polymorphic behavior.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading2">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse2" aria-expanded="false" aria-controls="polyCollapse2">
-                                Sample 2: Animals Speaking
-                            </button>
-                        </h2>
-                        <div id="polyCollapse2" class="accordion-collapse collapse" aria-labelledby="polyHeading2">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode2">class Animal:
-    def speak(self):
-        return "Animal sound"
-
-class Cat(Animal):
-    def speak(self):
-        return "Meow"
-
-class Dog(Animal):
-    def speak(self):
-        return "Woof"
-
-def hear(animal):
-    print(animal.speak())
-
-# Usage
-hear(Cat())  # Output: Meow
-hear(Dog())  # Output: Woof
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode2')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `Animal` with `speak`.<br>
-                                2. Subclasses override.<br>
-                                3. Function `hear` calls `speak` polymorphically.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse3" aria-expanded="false" aria-controls="polyCollapse3">
-                                Sample 3: Vehicles Moving
-                            </button>
-                        </h2>
-                        <div id="polyCollapse3" class="accordion-collapse collapse" aria-labelledby="polyHeading3">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode3">class Vehicle:
-    def move(self):
-        return "Moving"
-
-class Car(Vehicle):
-    def move(self):
-        return "Driving"
-
-class Bike(Vehicle):
-    def move(self):
-        return "Cycling"
-
-def travel(vehicle):
-    print(vehicle.move())
-
-# Usage
-travel(Car())  # Output: Driving
-travel(Bike())  # Output: Cycling
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode3')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base with `move`.<br>
-                                2. Overrides in subclasses.<br>
-                                3. Function calls polymorphically.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading4">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse4" aria-expanded="false" aria-controls="polyCollapse4">
-                                Sample 4: Birds Flying
-                            </button>
-                        </h2>
-                        <div id="polyCollapse4" class="accordion-collapse collapse" aria-labelledby="polyHeading4">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode4">class Bird:
-    def fly(self):
-        return "Flying"
-
-class Sparrow(Bird):
-    def fly(self):
-        return "Sparrow flying"
-
-class Penguin(Bird):
-    def fly(self):
-        return "Penguin can't fly"
-
-def soar(bird):
-    print(bird.fly())
-
-# Usage
-soar(Sparrow())  # Output: Sparrow flying
-soar(Penguin())  # Output: Penguin can't fly
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode4')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `fly`.<br>
-                                2. Overrides.<br>
-                                3. Polymorphic call.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading5">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse5" aria-expanded="false" aria-controls="polyCollapse5">
-                                Sample 5: Calculators Adding
-                            </button>
-                        </h2>
-                        <div id="polyCollapse5" class="accordion-collapse collapse" aria-labelledby="polyHeading5">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode5">class Calculator:
-    def add(self, a, b):
-        return a + b
-
-class ScientificCalc(Calculator):
-    def add(self, a, b):
-        return a + b  # Same, but could extend
-
-class BasicCalc(Calculator):
-    def add(self, a, b):
-        return int(a + b)
-
-def compute(calc, x, y):
-    print(calc.add(x, y))
-
-# Usage
-compute(ScientificCalc(), 1.5, 2.5)  # Output: 4.0
-compute(BasicCalc(), 1.5, 2.5)  # Output: 4
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode5')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `add`.<br>
-                                2. Overrides for type handling.<br>
-                                3. Polymorphic function.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading6">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse6" aria-expanded="false" aria-controls="polyCollapse6">
-                                Sample 6: Media Playing
-                            </button>
-                        </h2>
-                        <div id="polyCollapse6" class="accordion-collapse collapse" aria-labelledby="polyHeading6">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode6">class Media:
-    def play(self):
-        return "Playing media"
-
-class Audio(Media):
-    def play(self):
-        return "Playing audio"
-
-class Video(Media):
-    def play(self):
-        return "Playing video"
-
-def playback(media):
-    print(media.play())
-
-# Usage
-playback(Audio())  # Output: Playing audio
-playback(Video())  # Output: Playing video
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode6')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `play`.<br>
-                                2. Overrides.<br>
-                                3. Polymorphic.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading7">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse7" aria-expanded="false" aria-controls="polyCollapse7">
-                                Sample 7: Employees Working
-                            </button>
-                        </h2>
-                        <div id="polyCollapse7" class="accordion-collapse collapse" aria-labelledby="polyHeading7">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode7">class Employee:
-    def work(self):
-        return "Working"
-
-class Developer(Employee):
-    def work(self):
-        return "Coding"
-
-class Designer(Employee):
-    def work(self):
-        return "Designing"
-
-def task(emp):
-    print(emp.work())
-
-# Usage
-task(Developer())  # Output: Coding
-task(Designer())  # Output: Designing
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode7')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `work`.<br>
-                                2. Overrides.<br>
-                                3. Function calls.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading8">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse8" aria-expanded="false" aria-controls="polyCollapse8">
-                                Sample 8: Fruits Describing
-                            </button>
-                        </h2>
-                        <div id="polyCollapse8" class="accordion-collapse collapse" aria-labelledby="polyHeading8">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode8">class Fruit:
-    def describe(self):
-        return "A fruit"
-
-class Banana(Fruit):
-    def describe(self):
-        return "Yellow and curved"
-
-class Orange(Fruit):
-    def describe(self):
-        return "Round and orange"
-
-def info(fruit):
-    print(fruit.describe())
-
-# Usage
-info(Banana())  # Output: Yellow and curved
-info(Orange())  # Output: Round and orange
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode8')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `describe`.<br>
-                                2. Overrides.<br>
-                                3. Polymorphic.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading9">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse9" aria-expanded="false" aria-controls="polyCollapse9">
-                                Sample 9: Tools Using
-                            </button>
-                        </h2>
-                        <div id="polyCollapse9" class="accordion-collapse collapse" aria-labelledby="polyHeading9">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode9">class Tool:
-    def use(self):
-        return "Using tool"
-
-class Screwdriver(Tool):
-    def use(self):
-        return "Screwing"
-
-class Wrench(Tool):
-    def use(self):
-        return "Tightening"
-
-def apply(tool):
-    print(tool.use())
-
-# Usage
-apply(Screwdriver())  # Output: Screwing
-apply(Wrench())  # Output: Tightening
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode9')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `use`.<br>
-                                2. Overrides.<br>
-                                3. Function.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="polyHeading10">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#polyCollapse10" aria-expanded="false" aria-controls="polyCollapse10">
-                                Sample 10: Payments Processing
-                            </button>
-                        </h2>
-                        <div id="polyCollapse10" class="accordion-collapse collapse" aria-labelledby="polyHeading10">
-                            <div class="accordion-body">
-                                <strong>Code:</strong><br>
-                                <pre><code class="language-python" id="polyCode10">class Payment:
-    def process(self):
-        return "Processing payment"
-
-class PayPal(Payment):
-    def process(self):
-        return "Processing via PayPal"
-
-class Stripe(Payment):
-    def process(self):
-        return "Processing via Stripe"
-
-def pay(payment):
-    print(payment.process())
-
-# Usage
-pay(PayPal())  # Output: Processing via PayPal
-pay(Stripe())  # Output: Processing via Stripe
-</code></pre>
-                                <button class="btn btn-secondary copy-btn" onclick="copyCode('polyCode10')">Copy Code</button><br><br>
-                                <strong>Step-by-Step Explanation:</strong><br>
-                                1. Base `process`.<br>
-                                2. Overrides.<br>
-                                3. Polymorphic call.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    def draw(self): return "Square"
+def render(s): print(s.draw())
+render(Circle()); render(Square())</code></pre>
+                <button class="btn btn-primary btn-sm copy-btn" onclick="copyCode('pc1')">Copy Code</button></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p2">Sample 2: Animals Speaking</button></h2><div id="p2" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Cat:
+    def speak(self): return "Meow"
+class Dog:
+    def speak(self): return "Woof"
+def hear(a): print(a.speak())
+hear(Cat()); hear(Dog())</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p3">Sample 3: Vehicles Moving</button></h2><div id="p3" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Car:
+    def move(self): return "Driving"
+class Bike:
+    def move(self): return "Cycling"
+def travel(v): print(v.move())
+travel(Car()); travel(Bike())</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p4">Sample 4: Birds Flying</button></h2><div id="p4" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Sparrow:
+    def fly(self): return "Sparrow flying"
+class Penguin:
+    def fly(self): return "Penguin cannot fly"
+def soar(b): print(b.fly())</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p5">Sample 5: Calculators Adding</button></h2><div id="p5" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class BasicCalc:
+    def add(self, a, b): return int(a+b)
+class ScienceCalc:
+    def add(self, a, b): return float(a+b)</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p6">Sample 6: Media Playing</button></h2><div id="p6" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Audio:
+    def play(self): return "Playing Audio"
+class Video:
+    def play(self): return "Playing Video"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p7">Sample 7: Employees Working</button></h2><div id="p7" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Developer:
+    def work(self): return "Coding"
+class Designer:
+    def work(self): return "Designing"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p8">Sample 8: Fruits Describing</button></h2><div id="p8" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Banana:
+    def describe(self): return "Yellow"
+class Orange:
+    def describe(self): return "Round"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p9">Sample 9: Tools Using</button></h2><div id="p9" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class Wrench:
+    def use(self): return "Tightening"
+class Screwdriver:
+    def use(self): return "Screwing"</code></pre></div></div></div>
+                <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#p10">Sample 10: Payments Processing</button></h2><div id="p10" class="accordion-collapse collapse"><div class="accordion-body"><pre><code class="language-python">class PayPal:
+    def process(self): return "PayPal Processed"
+class Stripe:
+    def process(self): return "Stripe Processed"</code></pre></div></div></div>
             </div>
         </div>
-
-        <hr class="my-5">
-        <h2 class="text-center mb-4">Master Python with Professional Courses</h2>
-        <div class="row g-4 mb-5">
-            <div class="col-md-4">
-                <div class="card h-100 course-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">Python for Beginners</h5>
-                        <p class="card-text">Go from zero to hero with a complete certification course. Perfect for those starting their coding journey.</p>
-                        <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 course-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">Advanced Data Science</h5>
-                        <p class="card-text">Master NumPy, Pandas, and Matplotlib. Learn how to use Python for professional data analysis and AI.</p>
-                        <a href="#" class="btn btn-outline-primary w-100">Explore Course</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 course-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">Full-Stack Web Dev</h5>
-                        <p class="card-text">Learn to build powerful web applications using the Django and Flask frameworks with expert guidance.</p>
-                        <a href="#" class="btn btn-outline-primary w-100">Get Certified</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <div class="container ad-container mb-5">
-        <small class="text-muted">Advertisement</small>
-        </div>
+    <div class="outro-narrative">
+        <h4 style="color: var(--electric-blue);">The Journey Doesn't End Here</h4>
+        <p>You’ve navigated the four pillars—<strong>Encapsulation</strong>, <strong>Abstraction</strong>, <strong>Inheritance</strong>, and <strong>Polymorphism</strong>. But remember: mastering OOP is like learning an instrument. You now know the notes, but the music comes from how you compose them. </p>
+        <p>Will you build a scalable banking system? Or perhaps an intricate game engine? The code you’ve seen here are the seeds; your imagination is the soil. Go forth and instantiate greatness. <strong>Happy Coding!</strong></p>
+    </div>
 
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>About Me</h3>
-                    <p>I am a Python enthusiast dedicated to simplifying complex programming concepts for developers worldwide. This platform serves as a resource for mastering Object-Oriented Programming (OOP) through practical, real-world examples.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:pansensoyglenn@gmail.com" class="text-info">pansensoyglenn@gmail.com</a></p>
-                    <p>Python OOP Examples Website - Created with HTML5, CSS, JavaScript, and Bootstrap. All rights reserved © 2026.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+</div>
+
+<footer class="text-center py-5" style="background-color: #000;">
+    <div class="container">
+        <h3>About Glenn Pansensoy</h3>
+        <p>I am a Python enthusiast dedicated to simplifying complex programming concepts for developers worldwide.</p>
+        <p>Contact: <a href="mailto:pansensoyglenn@gmail.com" style="color: var(--electric-blue); text-decoration: none;">pansensoyglenn@gmail.com</a></p>
+        <p style="font-size: 0.9rem; color: #64748b;">© 2026 Python OOP Examples. All rights reserved.</p>
+    </div>
+</footer>
+
 </body>
 </html>

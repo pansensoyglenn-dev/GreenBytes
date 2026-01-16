@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact the Architect | Python OOP Mastery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --obsidian: #020617;
+            --midnight: #0f172a;
+            --accent: #00d4ff;
+            --text-gray: #94a3b8;
+        }
+        body { 
+            background-color: var(--obsidian); 
+            color: #ffffff; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .contact-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 50px;
+            backdrop-filter: blur(15px);
+            margin: 40px 0;
+        }
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+        }
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+        .btn-submit {
+            background: var(--accent);
+            color: var(--obsidian);
+            font-weight: 800;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 12px;
+            transition: 0.3s;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-submit:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+        .contact-info i {
+            color: var(--accent);
+            width: 30px;
+        }
+        .back-link { 
+            text-decoration: none; 
+            color: var(--accent); 
+            font-size: 0.9rem;
+        }
+        h1 { font-family: 'Cinzel', serif; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <a href="../index.html" class="back-link mb-4 d-inline-block"><i class="fas fa-arrow-left me-2"></i> Return to Curriculum</a>
+                
+                <div class="contact-card shadow-2xl">
+                    <div class="row g-5">
+                        <div class="col-md-5">
+                            <h1 class="mb-4">Get in <span style="color: var(--accent);">Touch</span></h1>
+                            <p class="text-gray mb-5">Have a question about a specific OOP pattern or a technical inquiry regarding AI integration? Send a message to the architect.</p>
+                            
+                            <div class="contact-info">
+                                <div class="d-flex align-items-center mb-4">
+                                    <i class="fas fa-envelope fa-lg me-3"></i>
+                                    <div>
+                                        <p class="small text-uppercase mb-0 opacity-50">Email</p>
+                                        <p class="mb-0">pansensoyglenn@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <i class="fab fa-linkedin fa-lg me-3"></i>
+                                    <div>
+                                        <p class="small text-uppercase mb-0 opacity-50">Professional Network</p>
+                                        <p class="mb-0">linkedin.com/in/glennpansensoy</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-code-branch fa-lg me-3"></i>
+                                    <div>
+                                        <p class="small text-uppercase mb-0 opacity-50">GitHub</p>
+                                        <p class="mb-0">github.com/pansensoyglenn-dev.github.io/GreenBytes/</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <form action="#" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-uppercase opacity-75">Full Name</label>
+                                        <input type="text" class="form-control" placeholder="John Doe" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-uppercase opacity-75">Email Address</label>
+                                        <input type="email" class="form-control" placeholder="john@example.com" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small text-uppercase opacity-75">Subject</label>
+                                        <input type="text" class="form-control" placeholder="Technical Inquiry - Module 4" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small text-uppercase opacity-75">Message</label>
+                                        <textarea class="form-control" rows="5" placeholder="Your message here..." required></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn-submit">Transmit Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

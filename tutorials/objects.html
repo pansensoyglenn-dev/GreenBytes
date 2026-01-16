@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4575646748966866" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: The Blueprint & The Instance | Python OOP Mastery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --obsidian: #020617;
+            --midnight: #0f172a;
+            --accent: #00d4ff;
+            --text-gray: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        body { 
+            background-color: var(--obsidian); 
+            color: #ffffff; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ELEGANT & RESPONSIVE NAV */
+        .navbar {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.8rem 0;
+        }
+        
+        .navbar-brand { font-weight: 800; color: var(--accent) !important; letter-spacing: -0.5px; }
+
+        /* MAIN CONTENT AREA */
+        .container-module {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: clamp(24px, 6vw, 60px);
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: clamp(24px, 4vw, 48px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* SIGNIFICANCE SECTION */
+        .significance-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(2, 6, 23, 0) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 2rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+        }
+
+        /* RESPONSIVE GRID */
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .role-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 24px;
+            transition: 0.3s ease;
+        }
+
+        .role-item:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+        /* CODE BLOCK RESPONSIVENESS */
+        .code-container {
+            background: #010409;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            font-family: 'Fira Code', monospace;
+            position: relative;
+        }
+        
+        pre { margin: 0; overflow-x: auto; font-size: 0.9rem; }
+
+        .ad-placeholder {
+            margin: 3rem 0;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        /* NEXT BUTTON */
+        .btn-next {
+            background: var(--accent);
+            color: var(--obsidian);
+            font-weight: 800;
+            padding: 1rem 2.5rem;
+            border-radius: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-next:hover { 
+            background: #ffffff; 
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            transform: scale(1.05);
+            color: var(--obsidian);
+        }
+
+        /* FOOTER DESIGN */
+        footer { background: #010409; color: var(--text-gray); }
+        footer h6 { color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        footer a { color: var(--text-gray); transition: 0.3s; text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .container-module { margin: 15px; padding: 30px 20px; }
+            .navbar-brand { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fab fa-python me-2"></i>PYTHON TUTORIAL</a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="intro.html">Module 1</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-info" href="objects.html">Module 2</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-module">
+        <header class="text-center mb-5">
+            <span class="badge rounded-pill bg-info bg-opacity-10 text-info px-3 py-2 mb-3">OOP FUNDAMENTALS</span>
+            <h1 class="display-4 fw-800">Classes & Instances</h1>
+            <p class="lead text-gray mx-auto" style="max-width: 700px;">Understanding the pivotal role of Blueprints in software scalability and memory management.</p>
+        </header>
+
+        <section class="significance-card">
+            <h2 class="h4 text-info mb-3"><i class="fas fa-project-diagram me-2"></i> The Architectural Significance</h2>
+            <p class="mb-0">In modern development, a <strong>Class</strong> acts as the logical anchor of your program. Its primary role is to ensure <strong>consistency</strong>. By defining a class, you create a template that ensures every object created from it (the <strong>Instance</strong>) adheres to the same set of rules, behaviors, and data structures. This is the difference between a loose collection of scripts and a professional-grade system architecture.</p>
+        </section>
+
+        
+
+        <div class="role-grid">
+            <div class="role-item">
+                <h3 class="h5 text-info mb-3"><i class="fas fa-drafting-compass me-2"></i> The Role of Classes</h3>
+                <p class="small text-gray mb-0">Classes define <strong>Scope and Type</strong>. They house the logic (methods) and the shared state (class attributes) that govern how your program handles specific entities, like a 'User' or a 'DatabaseConnection'.</p>
+            </div>
+            <div class="role-item">
+                <h3 class="h5 text-info mb-3"><i class="fas fa-cube me-2"></i> The Role of Instances</h3>
+                <p class="small text-gray mb-0">Instances are the <strong>Actual Data Carriers</strong>. While the class holds the "how-to," the instance holds the "what." Each instance lives in a unique memory address, allowing the same logic to process different data simultaneously.</p>
+            </div>
+        </div>
+
+        <div class="ad-placeholder">
+            <p class="x-small text-uppercase text-gray mb-2">Sponsored Content</p>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4575646748966866" data-ad-slot="YOUR_AD_SLOT" data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <section class="mt-5">
+            <h2 class="h4 mb-4">Implementing the Contract: <code>__init__</code></h2>
+            <p class="text-gray">The most critical role a class plays is managing the <strong>Object Lifecycle</strong>. The constructor ensures that no object enters your system in an "invalid" state.</p>
+            
+            
+
+            <div class="code-container mt-4">
+<pre style="color: #e6edf3;">
+<span style="color: #ff7b72;">class</span> <span style="color: #d2a8ff;">SystemNode</span>:
+    <span style="color: #8b949e;"># Class Role: Define the platform identity</span>
+    cluster_id = <span style="color: #a5d6ff;">"TX-09"</span>
+
+    <span style="color: #ff7b72;">def</span> <span style="color: #d2a8ff;">__init__</span>(<span style="color: #ffa657;">self</span>, node_ip):
+        <span style="color: #8b949e;"># Instance Role: Manage specific data</span>
+        <span style="color: #ffa657;">self</span>.ip = node_ip
+        <span style="color: #ffa657;">self</span>.status = <span style="color: #79c0ff;">"Ready"</span>
+
+<span style="color: #8b949e;"># Creating independent instances from the same blueprint</span>
+primary = SystemNode(<span style="color: #a5d6ff;">"192.168.1.1"</span>)
+backup = SystemNode(<span style="color: #a5d6ff;">"192.168.1.2"</span>)</pre>
+            </div>
+        </section>
+
+        <div class="text-center text-lg-end mt-5">
+            <a href="encapsulation.html" class="btn-next shadow-lg">Module 3: Encapsulation →</a>
+        </div>
+    </div>
+
+    <footer class="mt-auto pt-5 pb-4 border-top border-secondary border-opacity-10">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <h6 class="mb-4">Python Tutorial Mastery</h6>
+                    <p class="small pe-lg-5">Building the future of software architecture through deep-dive education. We focus on high-performance Python patterns for 2026 and beyond.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="mb-4">Resources</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-3"><a href="intro.html">The Architectural Shift</a></li>
+                        <li class="mb-3"><a href="objects.html">Classes & Instances</a></li>
+                        <li class="mb-3"><a href="encapsulation.html">Data Integrity</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="mb-4">Trust Center</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-3"><a href="privacy.html">Privacy Policy</a></li>
+                        <li class="mb-3"><a href="terms.html">Terms of Service</a></li>
+                        <li class="mb-3"><a href="contact.html">Support Desk</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="mb-4">Newsletter</h6>
+                    <p class="x-small mb-3">Get Python architecture insights delivered to your inbox.</p>
+                    <div class="input-group input-group-sm">
+                        <input type="email" class="form-control bg-transparent border-secondary text-white" placeholder="Email">
+                        <button class="btn btn-outline-info">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-10">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="x-small mb-0 opacity-50">&copy; 2026 Glenn Pansensoy. High-performance education.</p>
+                <div class="d-flex gap-4 x-small opacity-50">
+                    <span>Python 3.13 Ready</span>
+                    <span>AI-Optimized Design</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

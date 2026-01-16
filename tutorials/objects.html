@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes & Objects | Python Mastery</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --obsidian: #020617;
+            --accent: #00d4ff;
+            --text-white: #ffffff;
+        }
+
+        body { 
+            background-color: var(--obsidian); 
+            color: var(--text-white); 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
+            padding: 80px 12%;
+            line-height: 1.8;
+        }
+
+        header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 80px;
+            padding-bottom: 20px;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 200; letter-spacing: 5px; text-transform: uppercase; margin: 0; opacity: 0.9; }
+
+        .narrative-block {
+            max-width: 800px;
+            margin-bottom: 70px;
+            text-align: justify;
+        }
+
+        h2 { 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            color: var(--accent); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        p { font-size: 1.05rem; opacity: 0.75; margin-bottom: 25px; }
+
+        /* Technical Breakdown Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 80px 0;
+            text-align: left;
+        }
+
+        .tech-item {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .tech-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
+
+        pre {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            font-family: 'Fira Code', monospace;
+            color: #d1d5db;
+            font-size: 0.9rem;
+            margin: 60px 0;
+            overflow-x: auto;
+        }
+
+        .nav-links {
+            margin-top: 100px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a { color: var(--accent); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+        a:hover { opacity: 0.5; }
+        .code-comment { color: #6a9955; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Phase 01: Blueprints</h1>
+    </header>
+
+    <section class="narrative-block">
+        <h2>The Class vs. Object Distinction</h2>
+        <p>In the Python ecosystem, a <strong>Class</strong> is a structural definition—a blueprint that outlines what data an entity will hold and what actions it can perform. It exists in your code as a template but occupies no specific space in memory until it is invoked. An <strong>Object</strong>, or Instance, is the living manifestation of that blueprint. When you instantiate a class, Python allocates memory to store that specific version's data, allowing multiple objects to exist simultaneously while remaining entirely independent of one another.</p>
+        
+        
+    </section>
+
+    <div class="tech-grid">
+        <div class="tech-item">
+            <h3>The __init__ Method</h3>
+            <p>The constructor. This is where you define the initial state of your object. In modern Python, we prioritize setting only essential data here to keep our objects lean and focused.</p>
+        </div>
+        <div class="tech-item">
+            <h3>The Self Keyword</h3>
+            <p>Self is the explicit reference to the instance. It is the hook that allows methods to access the data stored within that specific object rather than the general class scope.</p>
+        </div>
+    </div>
+
+<pre><code><span class="code-comment"># Defining the blueprint</span>
+class Architect:
+    def __init__(self, name: str, specialty: str):
+        self.name = name
+        self.specialty = specialty
+
+    def design(self) -> str:
+        return f"{self.name} is creating a {self.specialty} plan."
+
+<span class="code-comment"># Creating distinct objects (Instances)</span>
+lead_dev = Architect("Glenn", "System Design")
+junior_dev = Architect("Alex", "Frontend")
+
+print(lead_dev.design()) <span class="code-comment"># Glenn is creating a System Design plan.</span></code></pre>
+
+    <section class="narrative-block">
+        <h2>Modern Architectural Thinking</h2>
+        <p>While traditional OOP focuses heavily on deep inheritance, modern Python architecture favors <strong>Composition</strong>. This means building complex objects by combining smaller, specialized classes rather than creating a massive hierarchy of parent and child classes. This approach reduces coupling and makes your system significantly more resilient to changes in requirements as your project evolves.</p>
+    </section>
+
+    <div class="nav-links">
+        <a href="intro.html">← Phase 00: Intro</a>
+        <a href="attributes.html">Phase 02: Attributes →</a>
+    </div>
+
+</body>
+</html>

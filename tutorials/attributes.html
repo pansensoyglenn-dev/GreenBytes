@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes & Self | Python Mastery</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --obsidian: #020617;
+            --accent: #00d4ff;
+            --text-white: #ffffff;
+        }
+
+        body { 
+            background-color: var(--obsidian); 
+            color: var(--text-white); 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
+            padding: 80px 12%;
+            line-height: 1.8;
+        }
+
+        header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 80px;
+            padding-bottom: 20px;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 200; letter-spacing: 5px; text-transform: uppercase; margin: 0; opacity: 0.9; }
+
+        .narrative-block {
+            max-width: 800px;
+            margin-bottom: 70px;
+            text-align: justify;
+        }
+
+        h2 { 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            color: var(--accent); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        p { font-size: 1.05rem; opacity: 0.75; margin-bottom: 25px; }
+
+        /* Tech Breakdown Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 80px 0;
+            text-align: left;
+        }
+
+        .tech-item {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .tech-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
+
+        pre {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            font-family: 'Fira Code', monospace;
+            color: #d1d5db;
+            font-size: 0.9rem;
+            margin: 60px 0;
+            overflow-x: auto;
+        }
+
+        .nav-links {
+            margin-top: 100px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a { color: var(--accent); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+        a:hover { opacity: 0.5; }
+        .code-comment { color: #6a9955; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Phase 02: Attributes & Self</h1>
+    </header>
+
+    <section class="narrative-block">
+        <h2>The State of an Object</h2>
+        <p>In Python, <strong>Attributes</strong> are the variables that belong to an object. They represent the "State"—the data that differentiates one instance from another. While the class defines what kind of data can be stored, the attributes hold the specific values. Mastering attributes is the difference between writing a generic script and building a powerful, data-driven system where objects "remember" who they are and what they are currently doing.</p>
+        
+        
+    </section>
+
+    <section class="narrative-block">
+        <h2>Demystifying 'Self'</h2>
+        <p>The most common point of confusion for Python beginners is the <code>self</code> parameter. In a practical sense, <code>self</code> is not a keyword, but a conventional name for the first argument of any method. It serves as a pointer to the specific memory address of the object being manipulated. Without <code>self</code>, Python would have no way to distinguish which object's data to retrieve or modify when a method is called by multiple instances.</p>
+
+        
+    </section>
+
+    <div class="tech-grid">
+        <div class="tech-item">
+            <h3>Instance Attributes</h3>
+            <p>Defined inside <code>__init__</code> with the <code>self</code> prefix. These are unique to every object you create, allowing "Object A" to have a different name or value than "Object B".</p>
+        </div>
+        <div class="tech-item">
+            <h3>Class Attributes</h3>
+            <p>Defined directly under the class header. These are shared across <strong>all</strong> instances of that class—ideal for constants or shared configurations.</p>
+        </div>
+    </div>
+
+<pre><code>class Drone:
+    <span class="code-comment"># Class Attribute (shared)</span>
+    category = "UAV"
+
+    def __init__(self, model: str, battery: int):
+        <span class="code-comment"># Instance Attributes (unique)</span>
+        self.model = model
+        self.battery = battery
+
+    def status(self):
+        <span class="code-comment"># 'self' allows access to unique instance data</span>
+        return f"{self.model}: {self.battery}% power remaining."
+
+alpha = Drone("Phantom", 85)
+beta = Drone("Mavic", 42)
+
+print(alpha.status()) <span class="code-comment"># Unique to alpha</span>
+print(beta.status())  <span class="code-comment"># Unique to beta</span></code></pre>
+
+    <section class="narrative-block">
+        <h2>Attribute Lifecycle</h2>
+        <p>Attributes in Python are highly dynamic. Unlike more rigid languages, Python allows you to add or modify attributes at runtime. However, professional architecture discourages this "on-the-fly" modification. In a production environment, all attributes should be explicitly declared within the constructor to maintain code predictability and ensure that your object's structure remains transparent to other developers.</p>
+    </section>
+
+    <div class="nav-links">
+        <a href="objects.html">← Phase 01: Blueprints</a>
+        <a href="encapsulation.html">Phase 03: Encapsulation →</a>
+    </div>
+
+</body>
+</html>

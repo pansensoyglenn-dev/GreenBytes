@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Glenn Junsay Pansensoy - GreenBytes</title>
+    <meta name="description" content="Learn more about Glenn Junsay Pansensoy, the lead developer behind GreenBytes, and our mission to provide high-quality Python programming tutorials.">
+    
+    <style>
+        :root {
+            --obsidian:    #0a0a0a;
+            --midnight:    #0f1e4d;
+            --electric:    #40a9ff;
+            --text-main:   #e6e6e6;
+            --text-muted:  #a0a0a0;
+            --glass:       rgba(15, 30, 77, 0.28);
+            --shadow:      0 8px 32px rgba(0,0,0,0.45);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--obsidian);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.8; /* Slightly increased for better readability with justified text */
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            padding: clamp(30px, 6vw, 60px);
+            border-radius: 20px;
+            border: 1px solid rgba(64,169,255,0.15);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: white;
+            margin-bottom: 0.2em;
+        }
+
+        .subtitle {
+            color: var(--electric);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            color: white;
+            margin: 1.5em 0 0.8em;
+            border-left: 4px solid var(--electric);
+            padding-left: 15px;
+            text-align: left; /* Keep headings left-aligned */
+        }
+
+        /* Justified Text Styling */
+        p {
+            margin-bottom: 1.5em;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .mission-box {
+            background: rgba(64,169,255,0.05);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px dashed var(--electric);
+            margin: 2em 0;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 2em;
+            color: var(--electric);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-bottom: 2em;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustment: Left align on very small screens to avoid large gaps */
+        @media (max-width: 480px) {
+            p {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="inherit.html" class="btn-back">← Back to Inheritance Hub/a>
+
+        <div class="glass-card">
+            <header class="profile-header">
+                <h1>Glenn Junsay Pansensoy</h1>
+                <div class="subtitle">Software Developer & Educator</div>
+            </header>
+
+            <section>
+                <h2>Who I Am</h2>
+                <p>
+                    Hello! I am <strong>Glenn Junsay Pansensoy</strong>, a passionate programmer dedicated to solving real-world problems through clean, maintainable code. I believe that technology should be accessible to everyone, and that starts with high-quality education. Understanding the logic behind the code is the first step toward true innovation.
+                </p>
+                
+                <p>
+                    With a deep interest in Python development and modern web architectures, I spend my time building tools that bridge the gap between complex logic and user-friendly experiences. My journey in tech is driven by curiosity and a relentless desire to simplify the complicated.
+                </p>
+            </section>
+
+            <section class="mission-box">
+                <h2>The Mission of GreenBytes</h2>
+                <p>
+                    I founded <strong>GreenBytes</strong> as a digital sanctuary for developers. In an era of information overload, my goal is to provide "Green" code—code that is fresh, sustainable, and easy to understand. We focus on longevity and readability rather than just temporary fixes.
+                </p>
+                <p>
+                    Every tutorial on this site is crafted to help you not just copy-paste, but to truly understand the core principles of programming. By providing structured, well-documented content, I aim to help the next generation of coders build a stronger foundation.
+                </p>
+            </section>
+
+            <section>
+                <h2>Beyond the Code</h2>
+                <p>
+                    When I'm not behind a keyboard, I am constantly exploring new ways to contribute to the open-source community. I believe in the power of collaborative learning and the importance of documenting the journey of a developer. Sharing knowledge is, in my opinion, the highest form of mastery.
+                </p>
+            </section>
+
+            <section style="text-align: center; margin-top: 3em;">
+                <h2>Let's Connect</h2>
+                <p style="text-align: center;">Interested in collaborating or just want to talk Python?</p>
+                <p style="text-align: center;">
+                    <a href="mailto:pansensoyglenn@gmail.com" style="color: var(--electric); text-decoration: none; font-size: 1.3rem; font-weight: bold;">
+                        pansensoyglenn@gmail.com
+                    </a>
+                </p>
+            </section>
+        </div>
+
+        <footer>
+            © 2026 GreenBytes | Built with passion by Glenn Junsay Pansensoy
+        </footer>
+    </div>
+
+</body>
+</html>

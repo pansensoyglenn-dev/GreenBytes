@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical guide to Python source files, execution flow, and bytecode caching.">
+    <title>Python Source Files | Developer Insights</title>
+    <style>
+        :root {
+            --obsidian: #0b0e14;
+            --midnight-blue: #151b27;
+            --accent-blue: #007bff; /* Vibrant Accent Blue */
+            --accent-glow: rgba(0, 123, 255, 0.2);
+            --text-silver: #e6edf3;
+            --text-gray: #8b949e;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.7;
+            color: var(--text-silver);
+            background-color: var(--obsidian);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 60px auto;
+            background: var(--midnight-blue);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header {
+            border-bottom: 2px solid var(--accent-blue);
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin: 0;
+        }
+
+        h2 {
+            color: var(--accent-blue);
+            margin-top: 40px;
+            font-size: 1.6rem;
+        }
+
+        p {
+            color: var(--text-silver);
+            opacity: 0.9;
+        }
+
+        code {
+            background: var(--accent-glow);
+            color: #58a6ff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 0.9em;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--accent-blue);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: rgba(0,0,0,0.15);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        th {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 40px;
+            background: var(--obsidian);
+            border-top: 1px solid var(--midnight-blue);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #58a6ff;
+            text-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge">PYTHON INTERNALS</div>
+        <h1>Python Source Files</h1>
+        <p>Understanding the architecture behind <code>.py</code> and <code>.pyc</code> execution.</p>
+    </header>
+
+    <section>
+        <h2>The Interpretation Process</h2>
+        <p>Unlike fully compiled languages, Python uses a hybrid model. Your source code is transformed into an intermediate form before execution.</p>
+        
+        
+
+        <div class="info-card">
+            <strong>Bytecode Caching:</strong> Python stores compiled bytecode in the <code>__pycache__</code> directory. This prevents redundant compilation and significantly speeds up the startup time of your scripts.
+        </div>
+    </section>
+
+    <section>
+        <h2>File Format Specifications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>Content Type</th>
+                    <th>Usage Context</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.py</code></td>
+                    <td>Plain Text</td>
+                    <td>Primary source code written by developers.</td>
+                </tr>
+                <tr>
+                    <td><code>.pyc</code></td>
+                    <td>Binary Bytecode</td>
+                    <td>Generated by the interpreter for the PVM.</td>
+                </tr>
+                <tr>
+                    <td><code>.pyw</code></td>
+                    <td>Windowed Script</td>
+                    <td>Used for GUI apps to suppress the console window.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Execution Flow Summary</h2>
+        <p>1. <strong>Parser:</strong> Checks for syntax and creates a Parse Tree.<br>
+           2. <strong>Compiler:</strong> Generates bytecode from the Parse Tree.<br>
+           3. <strong>Interpreter:</strong> The Python Virtual Machine (PVM) reads and executes the instructions.</p>
+    </section>
+</div>
+
+<footer>
+    <p>Technical content curated for the modern developer.</p>
+    <p>Inquiries: <a href="mailto:pansensoyglenn@gmail.com">pansensoyglenn@gmail.com</a></p>
+    <p style="font-size: 0.75rem; margin-top: 20px;">&copy; 2026 Programming Excellence Hub</p>
+</footer>
+
+</body>
+</html>
